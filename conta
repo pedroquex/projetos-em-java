@@ -1,0 +1,40 @@
+public class Conta {
+
+    //Atributos
+    private int numeroConta;
+    private String titular;
+    protected double saldo;
+   
+    public Conta (int numeroConta, String titular){
+        this.numeroConta =  numeroConta;
+        this.titular = titular;
+    }  
+    public boolean depositar (double valor){
+        this.saldo += valor;
+        return true;
+    }  
+    public boolean sacar (double valor){
+        if (this.saldo < valor){
+            return false;
+        }
+        else{
+            this.saldo -= valor;
+            return true;
+        }      
+    }
+    public double getSaldo(){
+        return this.saldo;
+    }
+    public boolean transferir (Conta contaDestino,double valor){
+        boolean retirou = sacar(valor);
+        if(retirou){
+           contaDestino.depositar(valor);
+           return true;
+        }  
+        else{
+            return false;      
+        }  
+    }
+    public void gerarTaxa(){}
+}
+
