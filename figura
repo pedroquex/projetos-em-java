@@ -1,0 +1,90 @@
+public class Principal {
+   
+    public static void main(String[] args) {
+        Quadrado quadrado = new Quadrado();
+       
+        quadrado.setLado(5);
+       
+        System.out.println(quadrado.getNomeFigura());
+        System.out.println("Area.:" + quadrado.getArea());
+        System.out.println("Perimetro.:" +quadrado.getPerimetro());
+       
+        Triangulo triangulo = new Triangulo ();
+       
+        triangulo.setBase(3);
+        triangulo.setAltura(5);
+        triangulo.setLadoA(2);
+        triangulo.setLadoB(4);
+        triangulo.setLadoC(3);
+       
+        System.out.println(triangulo.getNomeFigura());
+        System.out.println("Area:" + triangulo.getArea());
+        System.out.println("Perimetro:" + triangulo.getPerimetro());
+       
+       
+        Pentagono pentagono = new Pentagono ();
+       
+        pentagono.setLado(3);
+       
+        System.out.println(pentagono.getNomeFigura());
+        System.out.println("Area.:" + pentagono.getArea());
+        System.out.println("Perimetro.:" + pentagono.getPerimetro());
+    }
+}
+
+
+public class Quadrado implements FiguraGeometrica {
+   
+    private int lado;
+
+    public void setLado(int valor){
+        this.lado = valor;
+    }
+   
+    @Override
+    public String getNomeFigura() {
+        return "Quadrado";
+    }
+
+    @Override
+    public int getArea() {
+        return this.lado * this.lado;
+    }
+
+    @Override
+    public int getPerimetro() {
+        return this.lado * 4;
+    }
+
+
+public class Triangulo implements FiguraGeometrica {
+   
+    private int base, altura, ladoA,ladoB,ladoC;
+   
+    public void setBase(int valor){
+        this.base = valor;}
+    public void setAltura(int valor){
+        this.altura = valor;}
+    public void setLadoA(int valor){
+        this.ladoA = valor;}
+    public void setLadoB(int valor){
+        this.ladoB = valor;}
+    public void setLadoC(int valor){
+        this.ladoC = valor;}
+       
+
+    @Override
+    public String getNomeFigura() {
+      return "Triangulo";
+    }
+
+    @Override
+    public int getArea() {
+        return (this.base * this.altura) / 2;
+    }
+
+    @Override
+    public int getPerimetro() {
+       return this.ladoA + this.ladoB + this.ladoC;
+    }     
+}
