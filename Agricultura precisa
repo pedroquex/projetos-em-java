@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Principal {
+
+    public static void main(String[] args) {
+        
+        // Definindo as variáveis de monitoramento
+        Scanner gerador = new Scanner(System.in);
+        double temperatura = 0;
+        double umidade = 0;
+        double ph = 0;
+        
+        // Simulando a obtenção de dados de sensoriamento remoto
+        System.out.println("qual a temperatura do solo em Celsius ? ");
+        temperatura = gerador.nextDouble()  ; // Temperatura em graus Celsius
+        System.out.println("qual a umidade do solo em % ? ");
+        umidade = gerador.nextDouble() * 100; // Umidade do solo em percentual
+        System.out.println("Qual o pH do solo ? ");
+        ph = gerador.nextDouble() * 14; // pH do solo
+        
+        // Tomando decisões com base nos dados de monitoramento
+        if (temperatura > 25 && temperatura < 30) {
+            System.out.println("A temperatura esta ideal para o plantio.");
+        } else if (temperatura <= 25) {
+            System.out.println("A temperatura esta baixa, e preciso aguardar para plantar.");
+        } else {
+            System.out.println("A temperatura esta alta, e preciso esperar esfriar para plantar.");
+        }
+        
+        if (umidade > 50) {
+            System.out.println("A umidade do solo esta ideal para o plantio.");
+        } else {
+            System.out.println("A umidade do solo esta baixa,  precisa irrigar.");
+        }
+        
+        if (ph >= 6 && ph <= 7) {
+            System.out.println("O pH do solo esta dentro da faixa ideal para o plantio.");
+        } else if (ph < 6) {
+            System.out.println("O pH do solo esta acido, precisa corrigir.");
+        } else {
+            System.out.println("O pH do solo esta alcalino, precisa corrigir.");
+        }
+        
+    }
+
+}
