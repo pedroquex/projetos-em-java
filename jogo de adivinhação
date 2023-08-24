@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class GuessingGame {
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            int secretNumber = (int) (Math.random() * 100);
+            int numGuesses = 0;
+            int guess = -1;
+            
+            System.out.println("Bem vindo ao jogo da advinhação! estou pensando em um numero entre 0 e 100");
+            
+            while (guess != secretNumber) {
+                System.out.print("qual numero estou pensando? ");
+                guess = scanner.nextInt();
+                numGuesses++;
+                
+                if (guess < secretNumber) {
+                    System.out.println("Muito baixo!");
+                } else if (guess > secretNumber) {
+                    System.out.println("Muito alto!");
+                }
+            }
+            
+            System.out.println("Parabens, Você acertou o numero em  " + numGuesses + " Tentativas!");
+        }
+    }
+}
